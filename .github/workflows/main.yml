@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16' # Or the version you need
+    - name: Install dependencies
+      run: npm install
+    - name: Build frontend
+      run: npm run build
+    - name: Run backend tests
+      run: npm run test -- --coverage # Change command if needed
+    - name: Run frontend tests
+      run: npm run test:ci  # Replace with correct testing command 
