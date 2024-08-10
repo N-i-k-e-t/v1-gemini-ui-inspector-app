@@ -12,12 +12,12 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '16' # Or the version you need
+        node-version: '20' # Node.js 20 is the current default 
     - name: Install dependencies
       run: npm install
     - name: Build frontend
-      run: npm run build
+      run: npm run build # OR npm run build:ci if needed for React 18
     - name: Run backend tests
-      run: npm run test -- --coverage # Change command if needed
+      run: npm run test -- --coverage # Adjust command if needed 
     - name: Run frontend tests
-      run: npm run test:ci  # Replace with correct testing command 
+      run: npm run test:ci # Adjust command if needed for your React setup
